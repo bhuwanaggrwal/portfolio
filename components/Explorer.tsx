@@ -27,7 +27,6 @@ const explorerItems = [
     path: '/projects',
     icon: '/logos/js_icon.svg',
   },
-
   {
     name: 'github.md',
     path: '/github',
@@ -35,7 +34,8 @@ const explorerItems = [
   },
 ];
 
-const Explorer = memo(() => {
+// ✅ Define named component first
+const ExplorerComponent = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
 
   return (
@@ -72,6 +72,11 @@ const Explorer = memo(() => {
       </div>
     </div>
   );
-});
+};
+
+// ✅ Give displayName for better debugging
+ExplorerComponent.displayName = 'Explorer';
+
+const Explorer = memo(ExplorerComponent);
 
 export default Explorer;

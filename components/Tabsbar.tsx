@@ -3,7 +3,8 @@ import Tab from '@/components/Tab';
 
 import styles from '@/styles/Tabsbar.module.css';
 
-const Tabsbar = memo(() => {
+// ✅ Define named component
+const TabsbarComponent = () => {
   return (
     <div className={styles.tabs}>
       <Tab icon="/logos/react_icon.svg" filename="home.tsx" path="/" />
@@ -22,6 +23,11 @@ const Tabsbar = memo(() => {
       />
     </div>
   );
-});
+};
+
+// ✅ Add display name for ESLint
+TabsbarComponent.displayName = 'Tabsbar';
+
+const Tabsbar = memo(TabsbarComponent);
 
 export default Tabsbar;

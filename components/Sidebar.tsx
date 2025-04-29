@@ -26,7 +26,8 @@ const sidebarBottomItems = [
   { Icon: VscSettings, path: '/settings' },
 ];
 
-const Sidebar = memo(() => {
+// ✅ Define named component
+const SidebarComponent = () => {
   const router = useRouter();
 
   return (
@@ -70,6 +71,11 @@ const Sidebar = memo(() => {
       </div>
     </aside>
   );
-});
+};
+
+// ✅ Add display name
+SidebarComponent.displayName = 'Sidebar';
+
+const Sidebar = memo(SidebarComponent);
 
 export default Sidebar;

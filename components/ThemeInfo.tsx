@@ -10,7 +10,8 @@ interface ThemeInfoProps {
   theme: string;
 }
 
-const ThemeInfo = memo(({ icon, name, publisher, theme }: ThemeInfoProps) => {
+// ✅ Named function component
+const ThemeInfoComponent = ({ icon, name, publisher, theme }: ThemeInfoProps) => {
   const setTheme = (theme: string) => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
@@ -36,6 +37,11 @@ const ThemeInfo = memo(({ icon, name, publisher, theme }: ThemeInfoProps) => {
       </div>
     </div>
   );
-});
+};
+
+// ✅ Assign display name for clarity (optional but ESLint-safe)
+ThemeInfoComponent.displayName = 'ThemeInfo';
+
+const ThemeInfo = memo(ThemeInfoComponent);
 
 export default ThemeInfo;
